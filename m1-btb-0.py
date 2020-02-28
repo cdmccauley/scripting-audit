@@ -1,5 +1,8 @@
 # demonstrates: declare variable, assign variable, get input, convert data type
-grade = float(raw_input("Enter a grade between 0 and 100: "))
+# grade = float(raw_input("Enter a grade between 0 and 100: "))
+
+# demonstrates: declare variable, assign variable, get input
+grade = input("Enter a grade between 0 and 100: ")
 
 # demonstrates: if..elif..else, comparison operators, blocks, print, string literals
 if (grade > 89):
