@@ -1,0 +1,7 @@
+String.format
+Covers {} style
+Covers %s style
+
+TODO:
+Check key against code
+See if comments were addressed in other notes
