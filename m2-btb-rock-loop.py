@@ -1,32 +1,21 @@
-# demonstrates: comments, print, escape character, string literal
+# demonstrates: comments, list initialization, string literals
+# declarations
+choices = ["rock", "paper", "scissors", "lizard", "spock"]
+
 # print a header for the game
 print("\n**** Welcome to Rock, Paper, Scissors ****\n")
 
-# demonstrates: comments, print, string literal
-# print a header for the game
-# print("")
-# print("**** Welcome to Rock, Paper, Scissors, lizard, spock ****")
-# print("")
-
-# demonstrates: comments, assignment, input, string literal
 # get player 1 input
 player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or spock: ")
-# demonstrates: formatting
 player1.strip().lower()
 
-# demonstrates: comments, assignment, input, string literal
 # get player 2 input
 player2 = raw_input("Player 2, choose: rock, paper, scissors, lizard, or spock: ")
-# demonstrates: formatting
 player2.strip().lower()
 
-# demonstrates: comments, if..elif..else, equality, blocks/indentation, print
 # compare input and output winner
 if (player1 == player2):
-    # demonstrates: format
     print("Tie, both players chose {}").format(player1)
-    # demonstrates: string concatenation
-    # print("Tie, both players chose " + player1)
 elif (player1 == "rock" and player2 == "paper"):
     print("Player 2 wins, paper covers rock.")
 elif (player1 == "rock" and player2 == "scissors"):
