@@ -8,17 +8,13 @@ print("\n**** Welcome to Rock, Paper, Scissors ****\n")
 # print("**** Welcome to Rock, Paper, Scissors, lizard, spock ****")
 # print("")
 
-# demonstrates: comments, assignment, input, string literal
+# demonstrates: comments, assignment, input, string literal, formatting
 # get player 1 input
-player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or spock: ")
-# demonstrates: formatting
-player1.strip().lower()
+player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or spock: ").strip().lower()
 
-# demonstrates: comments, assignment, input, string literal
+# demonstrates: comments, assignment, input, string literal, formatting
 # get player 2 input
-player2 = raw_input("Player 2, choose: rock, paper, scissors, lizard, or spock: ")
-# demonstrates: formatting
-player2.strip().lower()
+player2 = raw_input("Player 2, choose: rock, paper, scissors, lizard, or spock: ").strip().lower()
 
 # demonstrates: comments, if..elif..else, equality, blocks/indentation, print
 # compare input and output winner

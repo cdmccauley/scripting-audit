@@ -1,17 +1,33 @@
-# demonstrates: comments, list initialization, string literals
+# demonstrates: lists
 # declarations
 choices = ["rock", "paper", "scissors", "lizard", "spock"]
 
 # print a header for the game
 print("\n**** Welcome to Rock, Paper, Scissors ****\n")
 
+# demonstrates: for...in..range, while loop, nested loop, formatting
 # get player 1 input
-player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or spock: ")
-player1.strip().lower()
+for i in range(1, 5):
+    inputOk = False
+    while inputOk == False:
+        player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or spock: ").strip().lower()
+        # demonstrates: in keyword
+        if (player1 in choices):
+            inputOk = True
+        else:
+            print("Error: invalid selection. Try again.")
 
+# demonstrates: for...in..range, formatting
 # get player 2 input
-player2 = raw_input("Player 2, choose: rock, paper, scissors, lizard, or spock: ")
-player2.strip().lower()
+for i in range(1, 5):
+    inputOk = False
+    while inputOk == False:
+        player2 = raw_input("Player 2, choose: rock, paper, scissors, lizard, or spock: ").strip().lower()
+        # demonstrates: in keyword
+        if (player2 in choices):
+            inputOk = True
+        else:
+            print("Error: invalid selection. Try again.")
 
 # compare input and output winner
 if (player1 == player2):
