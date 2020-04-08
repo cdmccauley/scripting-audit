@@ -1,32 +1,48 @@
 #
-# installs BeautifulSoup on each run
+# install BeautifulSoup if not installed
 #
 import subprocess
 import sys
-from bs4 import BeautifulSoup
 
-if("bs4" not in sys.modules.keys()):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "BeautifulSoup"])
+try:
+    from bs4 import BeautifulSoup
+except:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "beautifulsoup4"])
+    from bs4 import BeautifulSoup
 
-# print("numpy" in sys.modules)
+#
+# web crawler
+#
 
-# #
-# # script for web crawler
-# #
+# imports
+import urllib
+import logging
 
-# # imports
-# import urllib
-# from bs4 import BeautifulSoup
+# declarations
+url = "https://www.brummett.info/"
 
-# # declarations
-# url = "https://www.brummett.info/"
+# functions
+def getPage(url):
+    hrefs = []
+    try:
+        page = urllib.urlopen(url)
+        soup = BeautifulSoup(page, "html.parser")
+        for link in soup.find_all("a"):
+            href = link.get("href")
+            if (href[:4] != "http"):
+                if (href[0] =="/"):
+                    href = url.rstrip("/") + href
+                elif (href[0] == "."):
+                    href = url.rstrip("/") + href.lstrip(".")
+                elif (href[:4] == "mail" or href[:3] == "tel"):
+                    href = "--> " + href
+                else:
+                    href = "--* " + href
+            print("Found hyperlink: " + href)
+            hrefs.append(href)
+    except:
+        print("error: " + url + " not found.")
+        hrefs.append("Error: Unable to crawl URL")
+    return hrefs
 
-# # functions
-# def getPage(url):
-#     try:
-#         page = urllib.urlopen(url)
-#         soup = BeautifulSoup(page, "html.parser")
-#     except:
-#         print("error: " + url + " not found.")
-
-# getPage(url)
+getPage(url)
