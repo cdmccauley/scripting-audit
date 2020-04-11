@@ -1,0 +1,10 @@
+C:\Users\Chris\Downloads\work\code\scripting-audit\csp-5-files\m3-btb-csp-4-groceries.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\csp-5-files\m3-btb-csp-5.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\csp-5-files\m3-btb-sysadmin.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\csp-5-files\m3-btb-web-crawler.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\csp-5-files\more-csp5-files\m3-btb-csp-4-groceries.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\csp-5-files\more-csp5-files\m3-btb-csp-5.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\csp-5-files\more-csp5-files\m3-btb-sysadmin.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\csp-5-files\more-csp5-files\m3-btb-web-crawler.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\m3-btb-csp-5.py
+C:\Users\Chris\Downloads\work\code\scripting-audit\m3-btb-security.py
