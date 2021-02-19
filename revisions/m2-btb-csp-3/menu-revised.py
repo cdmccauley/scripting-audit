@@ -1,52 +1,71 @@
-again = True
-while(again):
-	#get string from user
+# imports
+import os, time
+
+# get string from user
+def getString():
     userString = raw_input("Please enter a string: ")
+    return userString
 
-	#print menu of options
-    print("Menu:")
-    print("1: Print the string in reverse...")
-    print("2: Print the length of the string...")
-    print("3: Print the string in uppercase...")
-    print("4: Print the string in lowercase...")
-    print("5: Quit...")
+# print a menu of options
+def printMenu():
+    time.sleep(2) # display last entry
+    os.system('cls') # clear ui
+    print "Menu:"
+    print "1: Print the string in reverse..."
+    print "2: Print the length of the string..."
+    print "3: Print the string in uppercase..."
+    print "4: Print the string in lowercase..."
+    print "5: Enter new string..."
+    print "6: Exit..."
+    print ""
 
-	#get menu choice
-    inputOK = False
-    while(inputOK == False):
-        menuItem = raw_input("Enter an item number from the menu: ")
+# get menu item from user
+#NOTE: working here
+def getMenuItem():
+    menuItem = 0
+    userInput = raw_input("Enter an item number from the menu:")
+    try:
+        menuItem = int(userInput)
+    except:
+        print "Error: Input must be a number 1-6."
+    if menuItem > 0 and menuItem < 7:
+        return menuItem
+    else:
+        getMenuItem()
 
-        try:
-            menuItem = int(menuItem)
-        except ValueError:
-            menuItem = 0
+# demonstrates: function parameter
+def revString(user_string):
+    rev_string=''
+    x=len(user_string) #gets the length of a string
+    for i in range(0, x):
+        rev_string=user_string[i]+rev_string
+    print "Your string in reverse:",rev_string
+    if (user_string.lower())== (rev_string.lower()):
+        print "Your string is a palindrome!"
+    print ""
 
-        if(menuItem > 0) and (menuItem < 6):
-            inputOK=1
-        else:
-            print "Error: Invalid Entry"
-
+# demonstrates: function arguments
+user_string = getString()
+again=True
+while (again):
+    printMenu()
+    choice = getMenuItem()
 	#create output
-    if(menuItem == 1):
-        revString = ""
-        stringLength = len(userString)
-
-        for index in range(stringLength, 0, -1):
-            revString = revString + userString[index]
-
-        print("Your string in reverse:", revString)
-
-        if(userString.lower() == revString.lower()):
-            print("Your string is a palindrome!")
-        
-    elif target==2: 
-            print "The length of your string is: ",str(len(userString))
-    elif target==3: 
-            print "Your sting in all-Caps: ",userString.upper()
-    elif target==4: 
-            print "Your sting in lowercase: ",userString.lower() 
-    else:  #target==5: 
-            again=False
-            print ""
-            print ""
+    if choice==1:
+        revString(user_string)
+    elif choice==2: 
+        print "The length of your string is: ",str(len(user_string))
+    elif choice==3: 
+        print "Your string in all-Caps: ",user_string.upper()
+    elif choice==4: 
+        print "Your string in lowercase: ",user_string.lower() 
+    elif choice==5:
+        user_string = getString()
+    else:  #choice==6: 
+        again=False
+        print ""
+print ""
 pause=raw_input("Press Enter to close the window...")
+
+
+
