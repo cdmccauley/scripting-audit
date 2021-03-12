@@ -1,37 +1,28 @@
-# reversing a string, demonstrating functions
+# variable definitions
+groceryList = ['Spam', 'Eggs']
+itemToRemove = ''
+outcome = ''
 
+# function definitions
+def printList(): # function without parameter
+    for item in groceryList:
+        print item
 
-# get user input
+def removeItem(item): # function with parameter
+    if item in groceryList:
+        groceryList.remove(item)
+        feedback = "Item removed"
+    else:
+        feedback = "Item not found"
+    return feedback # return value where function was called
 
-# reverse string
+# script
+printList() # call custom function
 
-# continue?
+itemToRemove = raw_input('Enter an item to remove from the grocery list: ')
+outcome = removeItem(itemToRemove) # store value returned from function
+print outcome
+printList()
 
-def getInputString():
-    userInput = raw_input("enter string")
-    return userInput
-
-def printMenu():
-    print "Menu:"
-    print "1. Enter new string"
-    print "2. Check if string is palindrome"
-    print "3. Quit"
-
-def menuPrompt():
-    menuItem = raw_input("Please enter menu item (1-3): ")
-    return menuItem
-
-def reverseString(userString):
-    return ""
-
-def exitScript():
-    return False
-
-def menuSelection(item):
-    if item == "1":
-        getInputString()
-    elif item == "2":
-        reverseString(item)
-    elif item == "3":
-        exitScript()
-
+# end script
+print 'Goodbye'
