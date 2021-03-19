@@ -1,32 +1,26 @@
-# variable definitions
-groceryList = ['Spam', 'Eggs']
+# variable definitions, accessbile through entire script
+userList = ['chapmang', 'cleesej', 'idlee']
+userToRemove = ''
+outcome = ''
 
 # function definitions
-def addItem(item):
-    groceryList.append(item)
+def printList(): # function without parameter
+    print 'Usernames:'
+    for user in userList:
+        print user
 
-def removeItem(item):
-    if item in groceryList:
-        groceryList.remove(item)
-        feedback = "Item removed"
+def removeUser(user): # function with parameter, user
+    if user in userList:
+        userList.remove(user)
+        feedback = "User removed" # this variable is only accessible inside the removeUser function
     else:
-        feedback = "Item not found"
-    return feedback
-
-def printList():
-    for item in groceryList:
-        print item
+        feedback = "User not found"
+    return feedback # return value where function was called
 
 # script
-printList()
+printList() # call custom function, does not need argument
 
-itemToAdd = raw_input('Enter an item to add to the grocery list: ')
-addItem(itemToAdd)
-printList()
-
-itemToRemove = raw_input('Enter an item to remove from the grocery list: ')
-outcome = removeItem(itemToRemove)
+userToRemove = raw_input('Enter username to remove from the user list: ')
+outcome = removeUser(userToRemove) # call custom function with argument and store value returned from function
 print outcome
 printList()
-
-print 'Goodbye'
