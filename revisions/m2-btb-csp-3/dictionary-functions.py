@@ -4,15 +4,15 @@ output = ''
 
 # function declarations
 def addOrUpdateUser(id, name):
-    if id not in users.keys(): # check if user id does not exist
-        response = 'User ' + name + ' added' # user id does not exist, add user
-    else:
+    if users.has_key(id): # check if user id exists
         response = 'User ' + users[id] + ' updated to ' + name # user id exists, update user
+    else:
+        response = 'User ' + name + ' added' # user id does not exist, add user
     users[id] = name
     return response
 
 def removeUser(id):
-    if id in users.keys(): # check if user id exists
+    if users.has_key(id): # check if user id exists
         response = 'User ' + users[id] + ' removed'
         users.pop(id) # user id exists, remove user using id
     else:
