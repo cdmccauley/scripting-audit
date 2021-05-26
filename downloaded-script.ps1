@@ -1,0 +1,1 @@
+﻿write-host "`nYou are logged in as: ${env:UserName} and working on ${env:ComputerName} that is part of the ${env:UserDomain} Windows domain.`n"

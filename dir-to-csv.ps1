@@ -1,5 +1,6 @@
-﻿$SearchPath = Read-Host "Please enter path to search"
+﻿# $SearchPath = Read-Host "Please enter path to search"
+$SearchPath = ".\*.png"
 Get-ChildItem $SearchPath -Recurse -ErrorAction SilentlyContinue | 
-Select Name, FullName | 
+Select-Object Name, FullName | 
 ConvertTo-Csv |
-Tee-Object -FilePath "C:\search-path.csv"
+Tee-Object -FilePath ".\search-path.csv"
