@@ -1,60 +1,11 @@
-# variable declarations
-numbers = { 1: 'one', 2: 'two', 3: 'tree' }
-output = ''
-
-# function declarations
-def addPairOrUpdateValue(dictionary, key, value):
-    if dictionary.has_key(key): # check if key exists
-        response = 'Value {} updated to {}.'.format(dictionary[key], value) # key exists, function will update value
-    else:
-        response = 'Pair "{}: {}" added.'.format(key, value) # key does not exist, function will add key/value
-    dictionary[key] = value # update or add
-    return response
-
-def removePairByKey(dictionary, key):
-    if dictionary.has_key(key): # check if key exists
-        response = 'Pair "{}: {}" removed.'.format(key, dictionary[key])
-        dictionary.pop(key) # key exists, remove key/value
-    else:
-        response = 'Key {} not found.'.format(key)
-    return response
-
-def removePairByValue(dictionary, value):
-    response = 'Value {} not found.'.format(value)
-    for key in dictionary.copy().keys(): # iterate over copy so no error is caused when removing from original
-        if dictionary[key] == value:
-            dictionary.pop(key) # value was found, remove key/value
-            response = 'All instances of {} removed.'.format(value)
-    return response
-
-def keyOrValue(dictionary, item):
-    if item in dictionary.keys() and item in dictionary.values():
-        response = '{} is a key and a value.'.format(item)
-    elif item in dictionary.keys():
-        response = '{} is a key.'.format(item)
-    elif item in dictionary.values():
-        response = '{} is a value.'.format(item)
-    else:
-        response = '{} is not a key or a value.'.format(item)
-    return response
-
-def printPairs(dictionary):
-    for key in dictionary.keys():
-        print '{}: {}'.format(key, dictionary[key])
-
-# begin script
-
-# call function with arguments and store return
-output = addPairOrUpdateValue(numbers, 3, 'three')
-print output
-printPairs(numbers)
-
-# call functions with arguments and use return
-print addPairOrUpdateValue(numbers, 4, 'four')
-printPairs(numbers)
-
-print removePairByKey(numbers, 1)
-printPairs(numbers)
-
-print removePairByValue(numbers, 'two')
-printPairs(numbers)
+# We'll start this practice with a demonstration of dictionary and function declaration.
+# An empty dictionary can be simply declared by assigning an opening and closing curly brace to a variable.
+demoDictionary = {}
+# A dictionary can also be initialized when it is declared by providing a comma separated list of key-value pairs separated by a colon.
+demoDictionary = { "key": "value", "word": "definition" }
+# Whether the dictionary is declared empty or with provided values it can have items added to it at any time if the key being added does not already exist.
+# Two ways to add items to a dictionary are using square brackets or the update function.
+# When using square brackets to add an item to the dictionary the key is specified in the square brackets and the value is assigned to that key in the dictionary.
+demoDictionary[1] = "one"
+# When using the update function the key(s) and value(s) are specified as a dictionary literal with curly braces, colons, and commas; much like the syntax used when initializing.
+demoDictionary.update({ "[": "left-bracket", "]": "right-bracket" })
