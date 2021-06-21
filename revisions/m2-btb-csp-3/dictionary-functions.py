@@ -52,8 +52,15 @@ updateWrapper(["list"]) # prints "invalid argument" because a list is not a dict
 updateWrapper({"parameter": "argument"}) # updates demoDictionary with a new key-value pair.
 print demoDictionary.get("parameter") # prints "argument"
 
-# Notice that the demoDictionary is being used inside of the function even though it has been declared outside of the function.
+# Notice that the demoDictionary is being used inside of the function even though it has been declared outside of the function and it wasn't passed in as an argument.
 # This works because the variable demoDictionary was declared in the main body of the code and is therefore in the global scope.
-# There is another type of scope which is called local scope, and each function has it's own local scope.
-# Although variables declared in the global scope can be accessed in a local scope, variables declared in a local scope can not be accessed in the global scope.
+# There is another type of scope, which is called local scope, and each function has it's own local scope.
+# Items declared in the global scope can be accessed in a local scope, however, items declared in a local scope can not be accessed in the global scope or other local scopes.
+# It may seem that this behavior would be problematic because it would require all items to be declared in the global scope if they are to be used in any scope.
+# That is not the case though because functions may use the return keyword to send a value back to the scope from which they were called.
+# With the inclusion of the return keyword alongside parameters, 
+
+
+
 # Local scope is one of the features of functions and is what helps them make code easier to maintain and reuse.
+# 
