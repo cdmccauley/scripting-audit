@@ -42,7 +42,7 @@ demoFunction() # prints "This message comes from the demoFunction code block"
 # To demonstrate a function with a parameter we can create a "wrapper" function for the update function.
 # The update "wrapper" will accept an argument, check if it is a dictionary, and either update the demoDictionary or print an error.
 def updateWrapper(value):
-    if (type(value) == type(demoDictionary)):
+    if (isinstance(value, dict)):
         demoDictionary.update(value)
     else:
         print "invalid argument"
@@ -55,12 +55,46 @@ print demoDictionary.get("parameter") # prints "argument"
 # Notice that the demoDictionary is being used inside of the function even though it has been declared outside of the function and it wasn't passed in as an argument.
 # This works because the variable demoDictionary was declared in the main body of the code and is therefore in the global scope.
 # There is another type of scope, which is called local scope, and each function has it's own local scope.
-# Items declared in the global scope can be accessed in a local scope, however, items declared in a local scope can not be accessed in the global scope or other local scopes.
+# Items declared in the global scope, including variables and functions, can be accessed in a local scope.
+# However, items declared in a local scope can not be accessed in the global scope or other local scopes.
 # It may seem that this behavior would be problematic because it would require all items to be declared in the global scope if they are to be used in any scope.
 # That is not the case though because functions may use the return keyword to send a value back to the scope from which they were called.
-# With the inclusion of the return keyword alongside parameters, 
+# The inclusion of the return keyword alongside parameters and scope are what help functions make code easier to maintain and reuse.
 
+# To demonstrate portability with parameters and return we can create a function that will indicate whether a dictionary has a specific value, much like the function has_key that dictionaries already have.
+# For the scope demonstration we will create a variable with the same name as a variable we intend to use in the function to show that each is in its own scope.
+inValues = "this variable was declared in global scope"
 
+# Since our function will not be defined on dictionaries it will need to accept a dictionary and a value as an argument and it will return a boolean indicating if the value is in the dictionary.
+# This function could be copied to another Python script and could be used for dictionaries in that script.
+def has_value(dictionary, value):
+    inValues = False
+    if (value in dictionary.values()):
+        inValues = True
+    return inValues
 
-# Local scope is one of the features of functions and is what helps them make code easier to maintain and reuse.
-# 
+# Before we call the has_value function we will display the value of the global variable inValues.
+print inValues # prints "this variable was declared in global scope"
+
+# Now we can use our has_value function by calling it with the demoDictionary and a value that should still be inside the dictionary.
+# The has_value function returns a boolean to the global scope that can be stored in variable and used in the if statement.
+result = has_value(demoDictionary, 1036)
+if (result):
+    print "value found"
+else:
+    print "value not found"
+
+# When the has_value function was called, a variable named inValues was created within its local scope and assigned a boolean value.
+# To show that this operation had no effect on the global variable of the same name we can print the global variable.
+print inValues # prints "this variable was declared in global scope"
+
+# One last consideration that hasn't been addressed is how this is all put together.
+# With more constructs being introduced, comments and organization become more and more important.
+# Every simple script can be organized into sections: imports, global variable declarations, function declarations, and the code that "drives" the script.
+# The reason to organize scripts in this order is due to dependency.
+# Imported modules will satisfy their own dependencies but your script may need those modules so they should be declared first.
+# Global variables may use imported modules to be initialized so they should be declared second.
+# Function declarations may use imported modules or global variables so they should be declared third.
+# Since functions may also be dependent on other functions, the calling functions should be declared after the functions they call.
+# Finally, driver code ties everything together and will need access to everything else so it should always be declared last.
+
