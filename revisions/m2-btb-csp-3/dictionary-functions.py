@@ -92,9 +92,10 @@ print inValues # prints "this variable was declared in global scope"
 # With more constructs being introduced, comments and organization become more and more important.
 # Every simple script can be organized into sections: imports, global variable declarations, function declarations, and the code that "drives" the script.
 # The reason to organize scripts in this order is due to dependency.
-# Imported modules will satisfy their own dependencies but your script may need those modules so they should be declared first.
-# Global variables may use imported modules to be initialized so they should be declared second.
-# Function declarations may use imported modules or global variables so they should be declared third.
+# Imported modules will satisfy their own dependencies but you may need those modules to initialize your variables, use in your functions, or use in your driver code so they should be declared first.
+# Global variables may use imported modules to be initialized and may need to be available for your functions and driver code so they should be declared second.
+# Functions may use imported modules or global variables and be used in your driver code so they should be declared third.
 # Since functions may also be dependent on other functions, the calling functions should be declared after the functions they call.
 # Finally, driver code ties everything together and will need access to everything else so it should always be declared last.
 
+# practice...add your own key-value pair to the dictionary using the update function or square bracket syntax then use the has_key function to check if your key exists in the dictionary and print a message indicating it was found or not found
