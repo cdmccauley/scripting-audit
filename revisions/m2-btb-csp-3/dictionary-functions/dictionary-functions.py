@@ -3,7 +3,7 @@
 demoDictionary = {}
 
 # A dictionary can also be initialized when it is declared by providing a comma separated list of key-value pairs separated by a colon.
-demoDictionary = { "key": "value", "word": "definition", "course": 1036 }
+demoDictionary = { "key": "value", "word": "definition", "course": 1036 }   
 
 # Whether the dictionary is declared empty or with provided values it can have items added to it at any time if the key being added does not already exist.
 # If the key already exists the value that is paired with that key will simply be overwritten.
