@@ -5,7 +5,47 @@ demoList = []
 # A list can also be initialized when it is declared by providing a comma separated list of values.
 demoList = ["rock", "paper", "scissors"]
 
-# Whether a list is declared empty or with provided values it can have items added to it at any time by 
+# Whether a list is declared empty or with provided values it can have an item added to the end of it at any time by passing a value to the append method of the list.
+demoList.append("Spock")
+
+# To access the values stored in the list the square bracket syntax can be used with a number that represents the postion of the item in the list.
+# This number is referred to as the index of the item and is assigned automatically based on the order that the items were assigned to the list.
+# Because we are working with computers the first item in the list is always assigned an index of 0.
+demoVariable = demoList[0]
+print demoVariable # prints the word "rock"
+demoVariable = demoList[1]
+print demoVariable # prints the word "paper"
+
+# The number used in the square bracket syntax can be stored in a variable as well.
+indexVariable = 2
+demoVariable = demoList[indexVariable]
+print demoVariable # prints the word "scissors"
+
+# Once an index has been assigned a value the square bracket syntax can also be used to change the value at that index.
+print demoList[3] # prints the word "Spock"
+demoList[3] = "lizard" # overwrites "Spock" with "lizard"
+print demoList[3] # prints the word "lizard"
+
+# Lists can also be used with the "in" keyword which has two uses, the first is to check if a value is present in the list.
+if ("Spock" in demoList): # evaluates to False
+    print "The Search for Spock is over."
+else:
+    print "Continue The Search for Spock."
+
+demoList.append("Spock")
+
+if ("Spock" in demoList): # evaluates to True
+    print "The Search for Spock is over."
+else:
+    print "Continue The Search for Spock."
+
+# The second use for the "in" keyword is to create a loop that iterates once for each item in a list.
+# This type of loop is referred to as a foreach loop.
+# The syntax of a foreach loop declares a variable which each item in the list will be stored in before the foreach codeblock is run.
+for demoItem in demoList:
+    print demoItem # prints each value stored in demoList
+
+# 
 
 
 
