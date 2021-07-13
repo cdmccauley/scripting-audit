@@ -21,12 +21,12 @@ indexVariable = 2
 demoVariable = demoList[indexVariable]
 print demoVariable # prints the word "scissors"
 
-# Once an index has been assigned a value the square bracket syntax can also be used to change the value at that index.
+# Once an list index has been assigned a value the square bracket syntax can also be used to change the value at that index.
 print demoList[3] # prints the word "Spock"
 demoList[3] = "lizard" # overwrites "Spock" with "lizard"
 print demoList[3] # prints the word "lizard"
 
-# Lists can also be used with the "in" keyword which has two uses, the first is to check if a value is present in the list.
+# Lists can also be paired with the "in" keyword which has two uses, the first is to check if a value is present in the list.
 if ("Spock" in demoList): # evaluates to False
     print "The Search for Spock is over."
 else:
@@ -40,20 +40,24 @@ else:
     print "Continue The Search for Spock."
 
 # The second use for the "in" keyword is to create a loop that iterates once for each item in a list.
-# This type of loop is referred to as a foreach loop.
+# This type of loop is referred to as a for or foreach loop.
 # The syntax of a foreach loop declares a variable which each item in the list will be stored in before the foreach codeblock is run.
 for demoItem in demoList:
-    print demoItem # prints each value stored in demoList
+    print demoItem # prints the first value in demoList then prints the next value and continues until all values have been printed.
 
-# 
+# The for loop can also be used with the range function to iterate a set number of times.
+# The range function returns a list of numbers starting from the first argument to the second argument.
+for i in range(0, len(demoList)): # foreach number from 0 to the last index of the demoList.
+    print "{}. ".format(i) + demoList[i] # prints the index and first value in demoList then prints the next index and value and continues until all indexes and values have been printed.
+
+# For and foreach loops are great for working with lists and other data structures that are composed of multiple values or when the amount of times a code block should run is known.
+# The for loop is only one type of loop available in Python.
+# The other type of loop, a while loop, will run until the evaluation of a condition returns a False value.
 
 
 
-# We will start this guided practice by tackling the objective of using a loop to repeat a script without exiting.
-# Hour 7 of the texbook introduces two types of loops that use different methods to repeat a block of code.
-# The first loop, a for loop, will run a set number of times.
-# If we use this loop we could either hard-code a number of games for players to play or ask them to decide how many games to play.
-# The second loop, a while loop, will run until the evaluation of a condition returns a False value.
+
+
 # If we use this loop for our game the players could play until they want to quit.
 
 # For our game it seems more appropriate to allow the players to play until they decide to quit and therefore will use a while loop.
