@@ -1,4 +1,4 @@
-# We will start this guided practice with a demonstration of list and loop declaration.
+# We will start this guided practice with a demonstration of list declaration.
 # An empty list can be simply declared by assigning an opening and closing bracket to a variable.
 demoList = []
 
@@ -21,64 +21,77 @@ indexVariable = 2
 demoVariable = demoList[indexVariable]
 print demoVariable # prints the word "scissors"
 
-# Once an list index has been assigned a value the square bracket syntax can also be used to change the value at that index.
+# Once a list index has been assigned a value the square bracket syntax can also be used to change the value at that index.
 print demoList[3] # prints the word "Spock"
 demoList[3] = "lizard" # overwrites "Spock" with "lizard"
 print demoList[3] # prints the word "lizard"
 
 # Lists can also be paired with the "in" keyword which has two uses, the first is to check if a value is present in the list.
-if ("Spock" in demoList): # evaluates to False
+if ("Spock" in demoList): # evaluates to False because "Spock" was overwritten by "lizard"
     print "The Search for Spock is over."
 else:
     print "Continue The Search for Spock."
 
 demoList.append("Spock")
 
-if ("Spock" in demoList): # evaluates to True
+if ("Spock" in demoList): # evaluates to True because "Spock" was appended to the end of the list.
     print "The Search for Spock is over."
 else:
     print "Continue The Search for Spock."
 
 # The second use for the "in" keyword is to create a loop that iterates once for each item in a list.
-# This type of loop is referred to as a for or foreach loop.
-# The syntax of a foreach loop declares a variable which each item in the list will be stored in before the foreach codeblock is run.
+# This type of loop is referred to as a for or for-each loop.
+# The syntax used to define a for-each loop declares a variable which each item in the list will be stored in before the for-each codeblock is run.
 for demoItem in demoList:
     print demoItem # prints the first value in demoList then prints the next value and continues until all values have been printed.
 
 # The for loop can also be used with the range function to iterate a set number of times.
 # The range function returns a list of numbers starting from the first argument to the second argument.
-for i in range(0, len(demoList)): # foreach number from 0 to the last index of the demoList.
+for i in range(0, len(demoList)): # for-each number from 0 to the last index of the demoList.
     print "{}. ".format(i) + demoList[i] # prints the index and first value in demoList then prints the next index and value and continues until all indexes and values have been printed.
 
-# For and foreach loops are great for working with lists and other data structures that are composed of multiple values or when the amount of times a code block should run is known.
 # The for loop is only one type of loop available in Python.
 # The other type of loop, a while loop, will run until the evaluation of a condition returns a False value.
-
-
-
-
-
-# If we use this loop for our game the players could play until they want to quit.
-
-# For our game it seems more appropriate to allow the players to play until they decide to quit and therefore will use a while loop.
-# We can assume the players want to play the game when they first invoke the script and can use this assumption to create a condition to start the game.
-# When the game is over we can prompt the players for input indicating whether they would like to run the loop again or exit the script.
+# The syntax used to define a while loop declares the condition that will be evaluated to determine when the loop will finish.
 playAgain = "Y"
-while playAgain.upper() == "Y":
-    # get player choices
-    # decide outcome
+while (playAgain.upper() == "Y"):
     playAgain = raw_input("Enter 'Y' to play again: ")
 
-# When running these 3 lines of code you will be continuously prompted for input as long as you enter a "Y" or "y".
-# If anything else is entered, the loop condition will be evaluated to False and the script will exit.
+# These 3 lines of code will continuously prompt the user for input as long as they enter a "Y" or "y".
+# If anything else is entered, the loop condition will be evaluated to False and the loop will exit.
 # In addition to an example of a loop, this can also be an example of input validation.
 # If the players enter a valid value, the loop will continue to run.
 # If the players enter an invalid value, the loop will exit.
-# This concept could also be reversed, a loop could be written to run while the players are entering invalid values.
+
+# This concept could be reversed and a loop could be written to run while the user is entering invalid values.
+choices = ["rock", "paper", "scissors", "lizard", "spock"]
+inputOk = False
+while (inputOk == False):
+    player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or Spock: ").strip().lower()
+    if (player1 in choices):
+        inputOk = True
+
+# In these lines of code the user will be prompted to enter a value until the value entered is also in the list named choices.
+# This type of validation can be used to ensure that a value entered by the user will not cause the rest of the script to behave in an unexpected way or crash.
+
+# These two loops could also be paired together by nesting one inside the other. 
+# This would cause the script to prompt the user for valid input until they enter valid input and decide to stop.
 playAgain = "Y"
-while playAgain.upper() == "Y":
-    inputOK = False
-    while inputOK == False:
-        player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or spock: ").strip().lower()
-    # decide outcome
+choices = ["rock", "paper", "scissors", "lizard", "spock"]
+while (playAgain.upper() == "Y"):
+    inputOk = False
+    while (inputOk == False):
+        player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or Spock: ").strip().lower()
+        if (player1 in choices):
+            inputOk = True
+    # get player2 input
+    # decide winner
     playAgain = raw_input("Enter 'Y' to play again: ")
+
+# After nesting the loops, there is almost enough code for a complete game of rock, paper, scissors, lizard, Spock that uses validation and is replayable.
+
+# To complete the practice portion of this lesson you will add some user feedback and another loop to the demonstration code and test that it works.
+# Implement code for the following items then take a screenshot that shows the script running with an invalid value and valid value from each player along with the game being played again and then exited.
+
+# 1. Add branching to display a message that will inform player 1 they have entered an invalid value.
+# 2. Add an additional while loop that will prompt player 2 for input until it is a valid choice, include branching to display a message that will inform player 2 they have entered an invalid value.
