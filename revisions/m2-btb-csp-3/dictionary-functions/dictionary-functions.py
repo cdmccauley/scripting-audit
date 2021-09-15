@@ -99,3 +99,21 @@ print inValues # prints "this variable was declared in global scope"
 # Finally, driver code ties everything together and will need access to everything else so it should always be declared last.
 
 # practice...add your own key-value pair to the dictionary using the update function or square bracket syntax then use the has_key function to check if your key exists in the dictionary and print a message indicating it was found or not found
+# practice...use the code below to create a dictionary in global scope then call the keyOrValue function and use the returned string in a print statement.
+
+# global declarations
+
+
+# functions
+def keyOrValue(dictionary, item):
+    if item in dictionary.keys() and item in dictionary.values():
+        response = '{} is a key and a value.'.format(item)
+    elif item in dictionary.keys():
+        response = '{} is a key.'.format(item)
+    elif item in dictionary.values():
+        response = '{} is a value.'.format(item)
+    else:
+        response = '{} is not a key or a value.'.format(item)
+    return response
+
+# script

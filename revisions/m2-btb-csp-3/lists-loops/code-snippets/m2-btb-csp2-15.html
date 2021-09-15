@@ -17,20 +17,20 @@
                 set starting line number:
                     data-start="1"
         -->
-        <pre data-start="20" class="language-python line-numbers">
+        <pre data-start="1" class="language-python line-numbers">
             <code>
                 <!-- begin code below -->
-                if ("Spock" in demoList): # evaluates to False because "Spock" was overwritten by "lizard"
-                    print "The Search for Spock is over."
-                else:
-                    print "Continue The Search for Spock."
-
-                demoList.append("Spock")
-
-                if ("Spock" in demoList): # evaluates to True because "Spock" was appended to the end of the list.
-                    print "The Search for Spock is over."
-                else:
-                    print "Continue The Search for Spock."
+                playAgain = "Y"
+                choices = ["rock", "paper", "scissors", "lizard", "spock"]
+                while (playAgain.upper() == "Y"):
+                    inputOk = False
+                    while (inputOk == False):
+                        player1 = raw_input("Player 1, choose: rock, paper, scissors, lizard, or Spock: ").strip().lower()
+                        if (player1 in choices):
+                            inputOk = True
+                    # get player2 input
+                    # decide winner
+                    playAgain = raw_input("Enter 'Y' to play again: ")
                 <!-- end code above -->
             </code>
         </pre>

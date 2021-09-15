@@ -40,7 +40,7 @@ def keyOrValue(dictionary, item):
 
 def printPairs(dictionary):
     for key in dictionary.keys():
-        print '{}: {}'.format(key, dictionary[key])
+        print '{}: {}'.format(key, dictionary.get(key))
 
 # begin script
 
