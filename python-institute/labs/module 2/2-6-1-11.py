@@ -21,4 +21,4 @@ total_minutes = ((hour * 60) + (mins)) + dura
 end_hour = (total_minutes // 60) % 24
 end_minute = total_minutes % 60
 
-print(str(end_hour) + ":" + str(end_minute))
+print(str(end_hour), str(end_minute), sep=":")
