@@ -18,7 +18,7 @@ int_third = 1
 int_fourth = 2
 
 # set cidr notation
-int_cidr = 24
+int_cidr = 31
 
 # convert each octet to binary
 # bin_first = bin(int_first)
@@ -53,24 +53,34 @@ print(str_binary_ipv4) # 11000000.10101000.00000001.00000010
 
 # we can now move on to converting the cidr notation to binary
 # since cidr is just telling how many bits are "on" for the network portion of the address we can use some math to start
-int_qty_full_on = int(int_cidr // 8)
-int_qty_host = int(32 - int_cidr)
-int_qty_full_off = int(int_qty_host // 8)
+# int_qty_full_on = int(int_cidr // 8)
+# int_qty_host = int(32 - int_cidr)
+# int_qty_full_off = int(int_qty_host // 8)
 
-print(int_qty_full_on, int_qty_full_off, int_qty_host)
+# print(int_qty_full_on, int_qty_full_off, int_qty_host)
+
+int_qty_network = int(int_cidr)
+int_qty_host = int(32 - int_qty_network)
+
+int_full_network = int_qty_network // 8
+int_full_host = int_qty_host // 8
+
+int_mix = 4 - (int_full_network + int_full_host)
+
+print(int_full_network, int_mix, int_full_host)
 
 # build a full octect of on bits
 str_on = "1"
-str_full_on = str_on * 8 + str_separator
+str_full_on = (str_on * 8) + str_separator
 
 # build a full octet of off bits
 str_off = "0"
-str_full_off = str_off * 8 + str_separator
+str_full_off = str_off * 8
 
 # build a mixed octect
-# str_mix_on = (8 - (int_qty_host - (int_qty_full_off * 8))) * str_on
-# str_mix_off = (int_qty_host - (int_qty_full_off * 8)) * str_off
-# str_mix = str_mix_on + str_mix_off
+str_mix_on = (8 - (int_qty_host - (int_full_host * 8))) * str_on
+str_mix_off = (int_qty_host - (int_full_host * 8)) * str_off
+str_mix = str_mix_on + str_mix_off
 # thoughts: instead of building the middle and end separately, build at the same time
 
 # print("begin", str_full_on * int_qty_full_on)
@@ -78,5 +88,20 @@ str_full_off = str_off * 8 + str_separator
 # print("end", str_mix)
 
 # full_cidr = (str_full_on * int_qty_full_on) + (str_full_off * int_qty_full_off) + str_mix
+full_cidr = (str_full_on * int_full_network) + (str_mix * int_mix) + (str_full_off * int_full_host)
 
-# print(full_cidr)
+print(full_cidr)
+# 32 = 4 0 0 ....
+# 31 = 3 1 0 ...
+
+# 25 = 3 1 0 ...
+# 24 = 3 0 1 ...
+# 23 = 2 1 1 ..
+
+# 17 = 2 1 1 ..
+# 16 = 2 0 2 ..
+# 15 = 1 1 2 .
+
+# 9  = 1 1 2 .
+# 8  = 1 0 3 .
+# 7  = 0 1 3
