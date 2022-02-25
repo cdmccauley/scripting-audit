@@ -18,7 +18,7 @@ int_third = 1
 int_fourth = 2
 
 # set cidr notation
-int_cidr = 31
+int_cidr = 32
 
 # convert each octet to binary
 # bin_first = bin(int_first)
@@ -75,7 +75,8 @@ str_full_on = (str_on * 8) + str_separator
 
 # build a full octet of off bits
 str_off = "0"
-str_full_off = str_off * 8
+str_full_off = ((int_mix // 1) * str_separator) + (str_off * 8)
+# str_full_off = str_off * 8
 
 # build a mixed octect
 str_mix_on = (8 - (int_qty_host - (int_full_host * 8))) * str_on
@@ -88,6 +89,10 @@ str_mix = str_mix_on + str_mix_off
 # print("end", str_mix)
 
 # full_cidr = (str_full_on * int_qty_full_on) + (str_full_off * int_qty_full_off) + str_mix
+# sep_one = (int_mix // (int_mix + 1)) * str_separator
+# sep_two = (int_full_host // (int_full_host + 1)) * str_separator
+# print(sep_one, sep_two)
+sep_qty = 3 - int_full_network
 full_cidr = (str_full_on * int_full_network) + (str_mix * int_mix) + (str_full_off * int_full_host)
 
 print(full_cidr)
@@ -105,3 +110,6 @@ print(full_cidr)
 # 9  = 1 1 2 .
 # 8  = 1 0 3 .
 # 7  = 0 1 3
+
+# when the begin + the end - the middle are equal to 4
+# when the begin - the end less than 0
