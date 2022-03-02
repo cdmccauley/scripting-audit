@@ -1,19 +1,32 @@
 # intro project
 
-1. how to find existing version
--- py command
--- python command
+- interpreted languages
 
-2. how to install python 3
--- https://wiki.python.org/moin/BeginnersGuide/Download
---- make note of PATH
+- how to find an existing version
+  - py command
 
-3. using a text editor
--- creating .py files
--- running .py files
---- using an extension
+- how to install python 3 on windows
+  - [https://wiki.python.org/moin/BeginnersGuide/Download](https://wiki.python.org/moin/BeginnersGuide/Download)
+  - make note of PATH
+  - note that linux and mac users should already have python
 
-4. using an online interpreter
+- using the Python shell/IDLE
+
+- using the edube sandbox
+
+- using a text editor
+  - creating .py files
+  - running .py files in a shell
+    - cwd, python directory, .py directory
+  - using vs code
+    - installing extension
+    - opening a folder
+    - creating a .py file
+    - terminal
+    - debugging
+
+what is a shell?
+[https://en.wikipedia.org/wiki/Shell_%28computing%29](https://en.wikipedia.org/wiki/Shell_%28computing%29)
 
 note considerations for mac and linux users
 version manager?
@@ -26,8 +39,8 @@ edube.org/sandbox
 
 # m2 project
 
-https://www.activestate.com/blog/top-10-tasks-to-automate-with-python/
-https://www.ipconvertertools.com/convert-cidr-manually-binary
+[https://www.activestate.com/blog/top-10-tasks-to-automate-with-python/](https://www.activestate.com/blog/top-10-tasks-to-automate-with-python/)
+[https://www.ipconvertertools.com/convert-cidr-manually-binary](https://www.activestate.com/blog/top-10-tasks-to-automate-with-python/)
 
 input
 print, sep
@@ -38,24 +51,24 @@ float
 str
 
 reserved names
--class, classify the ip
+- class, classify the ip
 
 tracing
 
 number prefix
--convert dec and hex ip to binary
+- convert dec and hex ip to binary
 
 multiple print args
--print ip address octects
+- print ip address octects
 
 operator coercion
 division by 0
 
 newline
--print host and network addresses
+- print host and network addresses
 
 keyword parameters
--print ip address with separators
+- print ip address with separators
 
 string concatenation
 order of operations

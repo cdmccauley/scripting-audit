@@ -58,10 +58,10 @@ int_qty_network = int(int_cidr)
 # find how many bits are "off" for the host portion of the address
 int_qty_host = int(32 - int_qty_network)
 
-# find how many network octets are completely on
+# find how many network octets are completely network octets
 int_full_network = int(int_qty_network // 8)
 
-# find how many host octets are completely on
+# find how many host octets are completely host octets
 int_full_host = int(int_qty_host // 8)
 
 # find how many mixed octets are required
